@@ -1,16 +1,20 @@
 export const renderMarkup = (todos, ref) => {
+  ref.innerHTML = '';
+
   const markup = todos
     .map(
       ({ poster, title, description, createdAt, id }) => /* html */ `
       <div class="col-md-4 rounded-3 js-card" id=${id}>
         <div class="card mb-3 position-relative" style="max-width: 540px">
           <div class="row g-0">
-            <div class="col-md-4">
+            <div class="col-md-4 p-3">
+            <b class="mb-1">${id}</b>
               <img
                 src=${poster}
-                class="img-fluid rounded-start"
+                class="img-fluid rounded"
                 alt=${title}
               />
+
             </div>
             <div class="col-md-8">
               <div class="card-body">

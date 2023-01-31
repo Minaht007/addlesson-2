@@ -10,3 +10,20 @@ export const getAllTodos = async () => {
 
   return await response.json();
 };
+
+// Create todo, method: POST
+export const createTodo = async todo => {
+  const response = await fetch(`${BASE_URL}/todos`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    body: JSON.stringify(todo),
+  });
+
+  if (!response.ok) {
+    throw new Error('Something went wrong');
+  }
+
+  return await response.json();
+};
